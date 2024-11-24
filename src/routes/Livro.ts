@@ -1,13 +1,12 @@
 import { Router } from "express";
-import { despesaController } from "../controllers/DespesaController";
+import { livroController } from "../controllers/LivroController";
 
 const router = Router();
 
-// Rotas para Despesa
-router.post("/", despesaController.create); // Criar despesa
-router.get("/", despesaController.list); // Listar despesas
-router.delete("/:id", despesaController.delete); // Deletar despesa
-router.put("/:id", despesaController.update); // Atualizar despesa
-router.get("/total", despesaController.calcularTotalDespesas); // Calcular total das despesas
+// Rotas para Livro
+router.post("/", livroController.create);
+router.get("/", livroController.list);
+router.delete("/:id", livroController.delete);
+router.put("/:id", livroController.update);
 
 export default router;
