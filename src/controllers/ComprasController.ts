@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import Compra from "../models/compras";
+import Compra from "../models/Compras";
 
 class CompraController {
-  // Criar um item na lista de compras
   public async create(req: Request, res: Response): Promise<Response> {
     const { nomeProduto, valorProduto } = req.body;
     try {
@@ -17,7 +16,6 @@ class CompraController {
     }
   }
 
-  // Listar todos os itens da lista de compras
   public async list(_: Request, res: Response): Promise<Response> {
     try {
       const compras = await Compra.find().sort({ nomeProduto: "asc" });
@@ -30,7 +28,6 @@ class CompraController {
     }
   }
 
-  // Atualizar um item na lista de compras
   public async update(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
     const { nomeProduto, valorProduto } = req.body;
@@ -54,7 +51,6 @@ class CompraController {
     }
   }
 
-  // Deletar um item da lista de compras
   public async delete(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
     try {
